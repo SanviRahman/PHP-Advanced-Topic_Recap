@@ -1,0 +1,2 @@
+Hello, this is a PHP file handling test.
+We are learning fopen, fwrite, fread.
