@@ -1,5 +1,5 @@
 <?php
-    $email = "shanto@gmail.com";
+    $email = "<br>shanto@gmail.com<br>";
 
     //Remove all illegal characters from email
     $email = filter_var($email,FILTER_SANITIZE_EMAIL);
