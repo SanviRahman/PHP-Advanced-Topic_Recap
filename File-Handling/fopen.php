@@ -4,10 +4,10 @@ $filename = "demo.txt";
 $handle = fopen($filename, "w");
 
 
-$txt = "Hello, this is a PHP file handling test.\n";
+$txt = "Hello, this is a PHP file handling test".PHP_EOL;
 fwrite($handle, $txt);
 
-$txt = "We are learning fopen, fwrite, fread.\n";
+$txt = "We are learning fopen, fwrite, fread.".PHP_EOL;
 fwrite($handle, $txt);
 fclose($handle); 
 
