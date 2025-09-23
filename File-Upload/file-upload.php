@@ -25,45 +25,45 @@
             $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 
             $uploadOk = 1;
-            $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+            $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));//Find to file extention name ->jpg/png
 
             // Check if image file is a actual image
             $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-            if ($check !== false) {
-                echo "<p>File is an image: " . $check['mime'] . "</p>";
+            if ($check === true) {
+                echo "File is an image: " . $check['mime'];
                 $uploadOk = 1;
             } else {
-                echo "<p>File is not an image.</p>";
+                echo "File is not an image.";
                 $uploadOk = 0;
             }
 
             // Check if file exists
             if (file_exists($target_file)) {
-                echo "<p>File already exists.</p>";
+                echo "File already exists.";
                 $uploadOk = 0;
             }
 
             // Check file size
             if ($_FILES["fileToUpload"]["size"] > 500000) {
-                echo "<p>Sorry, your file is too large.</p>";
+                echo "Sorry, your file is too large.";
                 $uploadOk = 0;
             }
 
             // Allow certain formats
             if (!in_array($imageFileType, ["jpg", "jpeg", "png", "gif"])) {
-                echo "<p>Only JPG, JPEG, PNG & GIF files are allowed.</p>";
+                echo "Only JPG, JPEG, PNG & GIF files are allowed.";
                 $uploadOk = 0;
             }
 
             // Upload file
             if ($uploadOk == 1) {
                 if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                    echo "<p>The file " . htmlspecialchars(basename($_FILES["fileToUpload"]["name"])) . " has been uploaded.</p>";
+                    echo "The file " . htmlspecialchars(basename($_FILES["fileToUpload"]["name"])) . " has been uploaded.";
                 } else {
-                    echo "<p>Sorry, there was an error uploading your file.</p>";
+                    echo "Sorry, there was an error uploading your file.";
                 }
             } else {
-                echo "<p>Your file was not uploaded.</p>";
+                echo "Your file was not uploaded.";
             }
         }
         ?>
